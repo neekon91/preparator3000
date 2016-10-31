@@ -38,7 +38,7 @@
   './stacksAndQueues/tests/stack.test.js',
   './stacksAndQueues/tests/minStack.test.js',
   './stacksAndQueues/tests/queue.test.js',
-  
+
   './graphs/tests/graph.test.js',
 
   './sortAndSearch/tests/search.test.js',
