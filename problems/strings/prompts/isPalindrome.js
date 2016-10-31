@@ -13,8 +13,7 @@
   * Even though 'tree' contains a palindrome 'ee', we only want to check the entire string.
   */
 
-const isPalindrome = (string) => {
-  return string == [...string].reverse().join('');
-}
+const isPalindrome = string => string == [...string].reverse().join('');
+
 
 module.exports = { isPalindrome }
