@@ -39,8 +39,7 @@
  */
 
 
-const asyncMap = (tasks, callback) => {
-
-};
+const asyncMap = (tasks, callback) => Promise.all(tasks.map(task => new Promise(task)))
+  .then(callback)
 
 module.exports = { asyncMap };
