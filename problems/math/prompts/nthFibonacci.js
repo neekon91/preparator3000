@@ -18,11 +18,16 @@
  * nthFibonacci(4); // => 3
  * etc...
  *
- * BONUS: Implement a solution that uses memoization to make this more efficient. 
+ * BONUS: Implement a solution that uses memoization to make this more efficient.
  */
 
-const nthFibonacci = n => {
-  // TODO: implement me!
+const nthFibonacci = (n, arr = [0,1]) => {
+  if(n < 0) return 0;
+  // return nthFibonacci(n - 2) + nthFibonacci(n -1);
+  for(let i = 2; i <= n; i++){
+    arr[i] = arr[i -1]+ arr[i -2];
+  }
+  return arr[n]
 };
 
 module.exports = { nthFibonacci };

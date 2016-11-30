@@ -14,8 +14,14 @@
  *                     [node]<-[node]
  */
 
-const hasCycle = linkedList => {
-  // TODO: Implement linked 
-};
+ const hasCycle = (linkedList, pause = true, fast = linkedList) => {
+   let slow = linkedList;
+   while (fast = fast.next) {
+     if (fast === slow) return true;
+     slow = pause ? slow : slow.next;
+     pause = !pause;
+   }
+   return false;
+ };
 
 module.exports = { hasCycle };

@@ -14,16 +14,33 @@ const makeHashTable = () => {
   let storageLimit = 4;
   let size = 0;
 
-  result.insert = () => {
-    // TODO: implement `insert`
+  result.insert = (k, v) => {
+    let index = getIndexBelowMaxForKey(k, storageLimit);
+    let bucket = result[storage][index] || [];
+    for(let i = 0; i < bucket.length; i++){
+      if(bucket[i][0] === k){
+        let old;
+        [old, bucket[i][1]] = [bucket[i][1], v]
+        return old;
+      }
+    }
+    // bucket = [...bucket, [k, v]];
+    result[storage][index].push([k, v])
+    size++;
+
+    return undefined;
   };
 
-  result.retrieve = () => {
-    // TODO: implement `retrieve`
+  result.retrieve = (k) => {
+
   };
 
-  result.remove = () => {
-    // TODO: implement `remove`
+  result.remove = (k) => {
+
+  };
+
+  result.resize = (newLimit) => {
+
   };
 
   return result;
