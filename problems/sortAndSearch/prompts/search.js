@@ -1,4 +1,4 @@
-/** 
+/**
   * Implement two functions to find the index of the element k in a sorted array of numbers.
   * Both algorithms should take log(n) time.
   *
@@ -14,8 +14,10 @@ const searchIterative = (nums, k) => {
   // TODO: Implement iterative search
 }
 
-const searchRecursive = (nums, k, i) => {
-  // TODO: Implement recursive search
+const searchRecursive = (nums, k, i = 0) => {
+  if(!nums.length || i > nums.length) return -1;
+  if(nums[i] === k) return i;
+  return searchRecursive(nums, k, i+1)
 }
 
 module.exports = { searchIterative, searchRecursive };
