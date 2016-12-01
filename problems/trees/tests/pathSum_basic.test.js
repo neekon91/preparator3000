@@ -19,9 +19,19 @@ describe('trees', function() {
       tree.left.left.left = new binaryTree(1);
       tree.right = new binaryTree(11);
       tree.right.left = new binaryTree(9);
-      tree.right.right = new binaryTree(2);
+      tree.right.right = new binaryTree(12);
       tree.right.right.right = new binaryTree(13);
-
+//           6
+//       3        11
+//     5   7    9    12
+//   1                13
+//
+//
+//
+//
+//
+//
+//
 
     it('should return a boolean', function() {
       const result = solution.pathSum(tree, 22);
@@ -33,7 +43,7 @@ describe('trees', function() {
     });
 
     it('should return true if target sum does exist', function() {
-      assert.equal(solution.pathSum(tree, 32), true);
+      assert.equal(solution.pathSum(tree, 42), true);
     });
 
     it('should return true only if path ends at a leaf', function() {

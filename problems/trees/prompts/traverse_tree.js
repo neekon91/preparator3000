@@ -1,12 +1,12 @@
 'use strict';
 
 /**
-  * NOTE: This prompt relies on the tree you developed in basic_tree. 
-  * If you haven't finished it, this file will not run. 
+  * NOTE: This prompt relies on the tree you developed in basic_tree.
+  * If you haven't finished it, this file will not run.
   *
   * Implement the two tree flattening functions, one with a breadth first approach and the other
   * a depth first approach. Make sure you understand the differences.
-  * 
+  *
   *   var testTree =
   *         a
   *        / \
@@ -23,9 +23,9 @@ const flattenTreeBreadthFirst = (tree) => {
   // TODO: Implement Breadth first approach
 };
 
-const flattenTreeDepthFirst = (tree) => {
-  // TODO: Implement Depth first approach
-};
+const flattenTreeDepthFirst = (tree) =>
+  tree.children.reduce((memo, child)=> memo.concat(flattenTreeDepthFirst(child)), [tree.value])
+
 
 module.exports = {
   flattenTreeBreadthFirst,
