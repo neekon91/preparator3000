@@ -6,26 +6,32 @@
   * Children should be able to add children directly.
   */
 
-class Tree {
-  constructor(val) {
-    this._val = val;
-    this._left = null;
-    this._right = null;
-  }
+// class Tree {
+//   constructor(val) {
+//     this._val = val;
+//     this._children = [];
+//   }
+//
+//   addChild(val) {
+//     // TODO: Add ability to add children
+//     let child = new Tee(val);
+//     this._children.push(child)
+//   }
+//
+//   contains(target) {
+//     // TODO: Add ability to check if value is contained within tree
+//     return (this._val === target) ? true : this._children.some(child => child.contains(target));
+//   }
+// };
+function Tree(val){
+  this.children = [];
+  this.value = val;
+}
+Tree.prototype.addChild = function(val){
+  this.children.push(new Tree(val))
+}
 
-  addChild(val) {
-    // TODO: Add ability to add children
-    if(!this._left){
-      this._left = new Tree(val);
-    }
-    if(!this._right){
-      this._right = new Tree(val);
-    }
-  }
-
-  contains() {
-    // TODO: Add ability to check if value is contained within tree
-  }
-};
-
+Tree.prototype.contains = function(target) {
+  return (this.value === target) ? true : this.children.some(child => child.contains(target));
+}
 module.exports = { Tree };
