@@ -20,7 +20,14 @@
   */
 
 const flattenTreeBreadthFirst = (tree) => {
-  // TODO: Implement Breadth first approach
+  const queue = [tree], sol = [];
+  let cur;
+  while(queue.length){
+    cur = queue.pop();
+    cur.children.forEach(child => queue.unshift(child))
+    sol.push(cur.value);
+  }
+  return sol;
 };
 
 const flattenTreeDepthFirst = (tree) =>
