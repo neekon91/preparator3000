@@ -12,7 +12,20 @@
 
 
 const stringCompression = string => {
+  if (!string) {
+    return string;
+  }
 
+  let output = '';
+  for (let i = 0; i < string.length; i++) {
+      let beg = i;
+    while (i + 1 < string.length && string[beg] === string[i + 1]) {
+      i++;
+    }
+    output +=  string[beg] + (i - beg + 1);
+  }
+
+  return (output.length < string.length) ? output : string;
 };
 
 module.exports = { stringCompression };
